@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
-type dataType = {
+type dataTypeReturned = {
   success:boolean,
   data:{
     id:number,
@@ -14,13 +14,26 @@ type dataType = {
   }|null
 }
 
+type dataTypeSent = {
+  email:string,
+  password:string
+}
 
 export default function Home() {
 
-  let [data, setData] = useState<dataType>({success:false, data:null})
+  let [data, setData] = useState<dataTypeReturned>({success:false, data:null})
 
   async function fetchData(){
-    const res = await fetch('/api/user')
+    const res = await fetch('/api/user',{
+      method:"POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email:"something@example.com",
+        password:"hunter2"
+      })
+    })
     const json = await res.json()
     setData(json)
   }
