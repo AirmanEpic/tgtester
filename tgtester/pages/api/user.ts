@@ -12,10 +12,10 @@ type dataType = {
     }|null
   }
 
-    type dataTypeSent = {
-        email:string,
-        password:string
-    }
+type dataTypeSent = {
+    email:string,
+    password:string
+}
 
 export default function handler(
   req: NextApiRequest,
