@@ -10,4 +10,8 @@
  go to your development module folder
  use the command ``npm link``
  go to your environment folder
- use the command ``npm link @typegeniusClient/frontend`` and ``npm link @typegeniusClient/backend`` (Ideally, we need to get that working first)
+ use the command ``npm link typegenius``
+ now you create your schema files and so on
+ then run ``npm typegenius build``
+ ideally our command then reads the schema and executes it
+ <!-- use the command ``npm link @typegeniusClient/frontend`` and ``npm link @typegeniusClient/backend`` (Ideally, we need to get that working first) -->
