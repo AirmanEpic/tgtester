@@ -1,25 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-
-type dataType = {
-    success:boolean,
-    data:{
-      id:number,
-      email:string,
-      first_name:string,
-      last_name:string,
-      avatar:string
-    }|null
-  }
-
-type dataTypeSent = {
-    email:string,
-    password:string
-}
+import type { userDataResponse, userDataInput } from '@/types/main'
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<dataType>
+  res: NextApiResponse<userDataResponse>
 ) {
     
 
@@ -27,7 +12,7 @@ export default function handler(
         res.status(400).json({ success: false, data:null })
         return
     }
-
+    
     const { email, password } = req.body
 
     if (email === undefined || password === undefined) {

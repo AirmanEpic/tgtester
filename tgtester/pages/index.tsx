@@ -1,27 +1,13 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { useState } from 'react'
+import type { userDataResponse, userDataInput } from '@/types/main'
 
 const inter = Inter({ subsets: ['latin'] })
-type dataTypeReturned = {
-  success:boolean,
-  data:{
-    id:number,
-    email:string,
-    first_name:string,
-    last_name:string,
-    avatar:string
-  }|null
-}
-
-type dataTypeSent = {
-  email:string,
-  password:string
-}
 
 export default function Home() {
 
-  let [data, setData] = useState<dataTypeReturned>({success:false, data:null})
+  let [data, setData] = useState<userDataResponse>({success:false, data:null})
 
   async function fetchData(){
     const res = await fetch('/api/user',{
